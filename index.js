@@ -4,7 +4,7 @@ var $dateInput = document.querySelector("#datetime");
 var $searchBtn = document.querySelector("#search");
 
 //event listener on search button
-$searchBtn.addEventListener("click", function(){alert("Hello World")});
+$searchBtn.addEventListener("click", executeSearchButton);
 
 
 //set filteredSightings to sightingsData
@@ -25,12 +25,12 @@ function renderTable() {
     }
 }
 
-function executeSearchButton(){
+function executeSearchButton() {
     var filteredDate = $dateInput.value.trim();
 
     filteredSightings = sightingsData.filter(function(sighting){
-       var sightingData = sighting.datetime();
-       return sightingData === filteredDate; 
+       var sightingDate = sighting.datetime;
+       return sightingDate === filteredDate; 
     });
     renderTable();
 }
